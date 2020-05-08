@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Home</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/home.css' %}">
+
+<style>
+
+.homecontainer {
+  position: relative;
+  float: right;
+  width: 320px;
+}
+
+.homeimage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homeoverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.homecontainer:hover .homeoverlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hometext {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<nav>
+	<ul>
+    <li><a href="{% url 'home' %}" title="Let's Go Back Home :)">Home</a></li>
+    <li><a href="{% url 'posts-home' %}" title="Find out about the hottest and coolest places on Earth !!">Posts</a></li>
+    <li><a href="{% url 'bnb-home' %}" title="Bed & Breakfast !!">BNB</a></li>
+    <li><a href="{% url 'about' %}" title="Know More About Us">About Us</a></li>
+    
+    {% if user.is_authenticated %}
+    	<li><a href="{% url 'profile' %}" title="Profile">Profile</a></li>
+    	<li><a href="{% url 'logout' %}" title="Logout">Logout</a></li>
+    {% else %}
+    	<li><a href="{% url 'signup' %}" title="Sign Up">Sign Up</a></li>
+    	<li><a href="{% url 'login' %}" title="Login">Login</a></li>
+    {% endif %}
+
+  </ul>
+</nav>
+
+<table border="0">
+	
+		<tr>
+			
+			<td>
+				<div style="font-size: 40px;color: white;">
+				<a href="{% url 'home' %}" style="color: white;">
+				TravelLife
+				</a>
+				</div>
+			</td>
+			
+			<td>
+				<a href="{% url 'home' %}">
+				<img src="{% static "blog/logo.png" %}" alt="Logo">
+				</a>
+			</td>
+		</tr>
+</table>
+
+{% if messages %}
+	{% for message in messages%}
+		<div class="alert {{ message.tags }}">
+			<span class="closebtn">&times;</span>  
+			{{ message }}
+		</div>
+	{% endfor %}
+{% endif %}
+
+</header>
+
+<div class="parallax"></div>
+
+<div style="height:160px;background-color:#c7fcfc;font-size:36px;padding-top:20px;padding-left:60px;padding-right:50px;padding-bottom:120px;font-family:sans-serif;background-color: #E5FFFE;">
+		</td><u><i>TravelLife is a website for the travel enthusiast in you.<br></i></u>
+		
+		<div class="homecontainer">
+		<a href="{% url 'bnb-home' %}">
+  		<img src="{% static "blog/backpackers.jpg" %}" alt="Avatar" class="homeimage">
+  		<div class="homeoverlay">
+    	<div class="hometext">Let's Get Started !!!</div>
+  		</div>
+  		</a>
+		</div>
+
+<div style="height:100%;background-color:#c7fcfc;font-size:36px;padding-top:20px;padding-left:60px;padding-right:50px;padding-bottom:60px">
+
+
+<div style="font-size: 30px;float: left;">
+
+" <i>Life is either a daring adventure or nothing at all !!</i> "
+<br>
+" <i>Never let your dreams be greater than your memories</i> "
+
+</div><br>
+
+<div style="font-size: 30px;padding-left:0px;padding-top: 50px; float: left;">-These are some of the quotes that we live by.
+</div>
+
+<div style="font-size: 30px;padding-left:20px; float: left">
+	Life is short & the world is wide; so live your best with TravelLife.
+</div>
+
+</div>
+
+<div class="parallax"></div>
+
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+
+</body>
+</html>
