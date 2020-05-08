@@ -1,7 +1,7 @@
 <h1 align="center">TravelLife</h1>
 
-![Python](https://img.shields.io/badge/Python-3.7.4-blue)
-![Django](https://img.shields.io/badge/Django-2.2.6-blue)
+[![Python](https://img.shields.io/badge/Python-3.7.4-blue)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-2.2.10-blue)](https://www.djangoproject.com/)
 
 Project Travel Life is an event management website created using HTML, CSS, JS and Django. The main goal of this project was to learn about Django and Web Development. This Project was done as part of Web Development coursework to complete University Requirements.
 
